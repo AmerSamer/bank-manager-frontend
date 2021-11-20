@@ -19,7 +19,7 @@ const Main = () => {
     }, [])
 
     const getDataAccounts = async () => {
-        const response = await axios.get(`http://127.0.0.1:4001/api/bank/`);
+        const response = await axios.get(`https://bank-manager-backend.herokuapp.com/api/bank/`);
         setAccounts(response.data);
     }
     const addAcctHandler = (acct) => {

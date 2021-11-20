@@ -19,7 +19,7 @@ const Credit = ({ accounts, cash, credit, passportId, depositOrWithdrawal, addIt
             const find = accounts.find((f) => f.passportId === creditAccount.passportId)
             if (find) {
                 if (creditAccount.credit > 0) {
-                    axios.put(`http://127.0.0.1:4001/api/bank/credit`, creditAccount)
+                    axios.put(`https://bank-manager-backend.herokuapp.com/api/bank/credit`, creditAccount)
                         .then((res) => {
                             if (res.status === 200) {
                                 setMsg(`The credit is changed to NIS ${creditAccount.credit}, at ${new Date()}`)

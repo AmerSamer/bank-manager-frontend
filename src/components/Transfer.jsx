@@ -24,7 +24,7 @@ const Transfer = ({ accounts, cash, credit, passportId, depositOrWithdrawal, add
                     if (transferenceAccount.cash > 0) {
                         const total = find.cash + find.credit - transferenceAccount.cash
                         if (total >= 0) {
-                            axios.put(`http://127.0.0.1:4001/api/bank/transferring`, transferenceAccount)
+                            axios.put(`https://bank-manager-backend.herokuapp.com/api/bank/transferring`, transferenceAccount)
                                 .then((res) => {
                                     if (res.status === 200) {
                                         setMsg(`The transfer from ${transferenceAccount.passportId} ID to ${transferenceAccount.passportIdReciever} ID card was successful, at ${new Date()}`)

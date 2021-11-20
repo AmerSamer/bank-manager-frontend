@@ -21,7 +21,7 @@ const AccountsDepositOrWithdrawal = ({ accounts, cash, credit, passportId, depos
             if (find) {
                 if (addAccount.cash > 0) {
                     if (addAccount.depositOrWithdrawal === "deposit") {
-                        axios.put(`http://127.0.0.1:4001/api/bank/deposit`, addAccount)
+                        axios.put(`https://bank-manager-backend.herokuapp.com/api/bank/deposit`, addAccount)
                             .then((res) => {
                                 if (res.status === 200) {
                                     setMsg(`A deposit of NIS ${addAccount.cash}, was made successfully, at ${new Date()}`)
@@ -36,7 +36,7 @@ const AccountsDepositOrWithdrawal = ({ accounts, cash, credit, passportId, depos
                     } else if (addAccount.depositOrWithdrawal === "withdrawal") {
                         const total = find.cash + find.credit - addAccount.cash
                         if(total >= 0){
-                            axios.put(`http://127.0.0.1:4001/api/bank/withdraw`, addAccount)
+                            axios.put(`https://bank-manager-backend.herokuapp.com/api/bank/withdraw`, addAccount)
                             .then((res) => {
                                 if (res.status === 200) {
                                     setMsg(`A withdrawal of NIS ${addAccount.cash}, was made successfully, at ${new Date()}`)

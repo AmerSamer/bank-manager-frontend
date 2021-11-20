@@ -20,7 +20,7 @@ const AddNewAcount = ({ accounts, cash, credit, passportId, addItem }) => {
             if (addAccount.passportId > 0) {
                 const find = accounts.find((f) => f.passportId === addAccount.passportId)
                 if (!find) {
-                    axios.post(`http://127.0.0.1:4001/api/bank/`, addAccount)
+                    axios.post(`https://bank-manager-backend.herokuapp.com/api/bank/`, addAccount)
                         .then((res) => {
                             if (res.status === 200) {
                                 setMsg('Account Added Successfully :)')
